@@ -10,7 +10,7 @@ const Header = () => {
     <header className="hero-section">
       {/* Top-left logo */}
   <div className="hero-logo" onClick={() => window.location.reload()}>
-    <img src="public\ChatGPT_Image_Feb_9__2026__07_38_33_PM-removebg-preview.png" alt="Logo" />
+<img src="/ChatGPT_Image_Feb_9__2026__07_38_33_PM-removebg-preview.png" alt="Logo" />
   </div>
       <div className="hero-container">
         {/* Main Name Display */}
