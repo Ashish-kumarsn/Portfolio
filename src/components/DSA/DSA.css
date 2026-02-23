@@ -5,15 +5,7 @@
   text-align: center;
 }
 
-#dsa h5 {
-  color: var(--color-light);
-  font-size: 1rem;
-}
 
-#dsa h2 {
-  color: var(--color-primary);
-  margin-bottom: 3rem;
-}
 
 .portfolio__container {
   display: grid;

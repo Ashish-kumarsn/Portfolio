@@ -9,8 +9,20 @@ import contestImg from "../../assets/contest.jpg";
 const DSA = () => {
   return (
     <section id="dsa">
-      <h5>Track of My Problem Solving</h5>
-      <h2>DSA Journey</h2>
+      <div className="mb-20 text-center">
+  {/* Small Line */}
+  <p className="mb-4 text-lg text-zinc-400">
+    logic through consistency
+  </p>
+
+  {/* Big Heading */}
+  <h2 className="text-[3rem] font-bold leading-[1.1] tracking-[-0.01em] text-white">
+    Problem Solving{" "}
+    <span className="bg-gradient-to-r from-purple-500 via-pink-500 to-fuchsia-500 bg-clip-text text-transparent italic">
+      Journey
+    </span>
+  </h2>
+</div>
 
       <div className="container portfolio__container">
         {/* LeetCode Card */}

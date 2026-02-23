@@ -1,53 +1,33 @@
 import React from "react";
 import "./Footer.css";
-import { FiFacebook, FiInstagram, FiTwitter } from "react-icons/fi";
-import { BsLinkedin } from "react-icons/bs";
+import { FiFacebook, FiInstagram, FiTwitter, FiGithub } from "react-icons/fi";
+import { BsLinkedin, BsTelegram } from "react-icons/bs";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   return (
     <footer>
-      <a href="#" className="footer_logo">
-        Go To
-      </a>
-
-      <ul className="permalinks">
-        <li>
-          <a href="#">Home</a>
-        </li>
-        <li>
-          <a href="#about">About</a>
-        </li>
-        <li>
-          <a href="#skills">Skills</a>
-        </li>
-        <li>
-          <a href="#projects">Projects</a>
-        </li>
-        <li>
-          <a href="#dsa">DSA</a>
-        </li>
-        <li>
-          <a href="#education">Education</a>
-        </li>
-        <li>
-          <a href="#contact">Contact</a>
-        </li>
-      </ul>
-
-      <div className="footer_socials">
-        <a href="https://www.facebook.com">
-          <FiFacebook />
-        </a>
-        <a href="https://www.linkedin.com/">
-          <BsLinkedin />
-        </a>
-        <a href="https://www.twitter.com">
-          <FiTwitter />
-        </a>
-      </div>
-      <div className="footer_copyright">
-        <small>&copy; Ashish Kumar {currentYear}</small>
+      <div className="footer_bottom">
+        <div className="footer_copyright">
+          <small>&copy; {currentYear} ASHISH KUMAR. ALL RIGHTS RESERVED.</small>
+        </div>
+        <div className="footer_socials">
+          <a href="https://github.com/Ashish-kumarsn/" target="_blank" rel="noopener noreferrer">
+            <FiGithub />
+          </a>
+          <a href="www.linkedin.com/in/ashish-kumar-a41a66256" target="_blank" rel="noopener noreferrer">
+            <BsLinkedin />
+          </a>
+          <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer">
+            <FiTwitter />
+          </a>
+          <a href="https://telegram.org/@ashishk2939" target="_blank" rel="noopener noreferrer">
+            <BsTelegram />
+          </a>
+          <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
+            <FiInstagram />
+          </a>
+        </div>
       </div>
     </footer>
   );

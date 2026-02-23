@@ -1,36 +1,29 @@
 import React, { useEffect, useState } from "react";
 import "./Nav.css";
-import { AiOutlineHome, AiOutlineUser } from "react-icons/ai";
-import { BsFillRocketFill } from "react-icons/bs";
-import { HiBadgeCheck } from "react-icons/hi";
-import { FaGraduationCap } from "react-icons/fa";
-import { MdMessage } from "react-icons/md";
-import { BiCodeAlt } from "react-icons/bi"; // 🆕 for My React Projects
-
 
 const Nav = () => {
-  const [active, setActive] = useState("#");
+  const [active, setActive] = useState("home");
+  const [scrolled, setScrolled] = useState(false);
+  const [moreOpen, setMoreOpen] = useState(false);
 
   useEffect(() => {
+    const sections = document.querySelectorAll("section");
+
     const handleScroll = () => {
-      const sections = document.querySelectorAll("section");
-      const scrollPosition = window.pageYOffset;
+      setScrolled(window.scrollY > 100);
+
+      let current = "home";
 
       sections.forEach((section) => {
         const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
+        const sectionHeight = section.offsetHeight;
 
-        if (
-          scrollPosition >= sectionTop - sectionHeight * 0.5 &&
-          scrollPosition < sectionTop + sectionHeight * 0.5
-        ) {
-          setActive(`#${section.id}`);
+        if (window.scrollY >= sectionTop - sectionHeight / 3) {
+          current = section.id;
         }
       });
 
-      if (scrollPosition === 0) {
-        setActive("#");
-      }
+      setActive(current);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -38,63 +31,112 @@ const Nav = () => {
   }, []);
 
   return (
-    <nav>
-      <a
-        href="#"
-        className={active === "#" ? "active" : ""}
-        onClick={() => setActive("#")}
-        title="Home"
-      >
-        <AiOutlineHome />
-      </a>
-      <a
-        href="#about"
-        className={active === "#about" ? "active" : ""}
-        onClick={() => setActive("#about")}
-        title="About Me"
-      >
-        <AiOutlineUser />
-      </a>
-      <a
-        href="#skills"
-        className={active === "#skills" ? "active" : ""}
-        onClick={() => setActive("#skills")}
-        title="Skills"
-      >
-        <HiBadgeCheck />
-      </a>
-      <a
-        href="#projects"
-        className={active === "#projects" ? "active" : ""}
-        onClick={() => setActive("#projects")}
-        title="Projects"
-      >
-        <BiCodeAlt />
-      </a>
-      <a
-        href="#dsa"
-        className={active === "#dsa" ? "active" : ""}
-        onClick={() => setActive("#dsa")}
-        title="DSA Journey"
-      >
-        <BsFillRocketFill />
-      </a>
-      <a
-        href="#education"
-        className={active === "#education" ? "active" : ""}
-        onClick={() => setActive("#education")}
-        title="Education"
-      >
-        <FaGraduationCap />
-      </a>
-      <a
-        href="#contact"
-        className={active === "#contact" ? "active" : ""}
-        onClick={() => setActive("#contact")}
-        title="Contact"
-      >
-        <MdMessage />
-      </a>
+    <nav className={scrolled ? "nav scrolled" : "nav"}>
+      <div className="nav-container">
+        <div className="nav-capsule">
+          <div className="nav-links">
+
+            <a href="#home" className={`nav-link ${active === "home" ? "active" : ""}`}>
+              <span className="link-text">Home</span>
+              <span className="link-dot"></span>
+            </a>
+
+            <a href="#about" className={`nav-link ${active === "about" ? "active" : ""}`}>
+              <span className="link-text">About</span>
+              <span className="link-dot"></span>
+            </a>
+
+            <a href="#skills" className={`nav-link ${active === "skills" ? "active" : ""}`}>
+              <span className="link-text">Skills</span>
+              <span className="link-dot"></span>
+            </a>
+
+            <a href="#projects" className={`nav-link ${active === "projects" ? "active" : ""}`}>
+              <span className="link-text">Projects</span>
+              <span className="link-dot"></span>
+            </a>
+
+            {/* MORE WRAPPER */}
+            <div
+              className="more-wrapper"
+              onMouseEnter={() => setMoreOpen(true)}
+              onMouseLeave={() => setMoreOpen(false)}
+            >
+              {/* More Button */}
+              <div className="nav-link more-link">
+                <span className="link-text">More</span>
+                <span className="link-dot"></span>
+              </div>
+
+              {/* Dropdown */}
+              <div className={`more-dropdown ${moreOpen ? "open" : ""}`}>
+
+                <div className="dropdown-grid">
+
+                  {/* LEFT FEATURED CARD */}
+                  <a href="#labs" className="dropdown-featured">
+                    <div className="featured-content">
+                      <div className="featured-title">Labs</div>
+                      <div className="featured-description">
+                        Experimental playground & fun micro-tools
+                      </div>
+                    </div>
+                  </a>
+
+                  {/* RIGHT SIDE STACKED */}
+                  <div className="dropdown-right">
+
+                    <a href="#links" className="dropdown-card">
+                      <div>
+                        <div className="card-title">Links</div>
+                        <div className="card-description">
+                          Socials & Profiles
+                        </div>
+                      </div>
+                    </a>
+
+                    <a href="#uses" className="dropdown-card">
+                      <div>
+                        <div className="card-title">Uses</div>
+                        <div className="card-description">
+                          My gear & software
+                        </div>
+                      </div>
+                    </a>
+
+                    <a href="#guestbook" className="dropdown-card">
+                      <div>
+                        <div className="card-title">Guestbook</div>
+                        <div className="card-description">
+                          Sign my wall
+                        </div>
+                      </div>
+                    </a>
+
+                  </div>
+
+                </div>
+
+              </div>
+            </div>
+
+            <a href="#contact" className="cta-button">
+              <span className="cta-text">Book a Call</span>
+            </a>
+
+          </div>
+        </div>
+      </div>
+
+      <a 
+  href="/Resume_Ashish_Kumar_70.pdf" 
+  download="Ashish_Kumar_Resume.pdf"
+  className="nav-action"
+>
+  ⌘
+</a>
+
+
     </nav>
   );
 };

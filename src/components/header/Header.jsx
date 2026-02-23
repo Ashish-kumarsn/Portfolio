@@ -1,45 +1,47 @@
 import React from "react";
 import "./Header.css";
-import CTA from "./CTA";
-import ME from "../../assets/Ashish2.jpg";
-import HeaderSocials from "./HeaderSocials";
-import { AiOutlineArrowDown } from "react-icons/ai";
-import { Typewriter } from "react-simple-typewriter";
+import { HiLocationMarker } from "react-icons/hi";
+import { BiLayerPlus } from "react-icons/bi";
+import { RiStackFill } from "react-icons/ri";
+
 
 const Header = () => {
   return (
-    <header className="container">
-      <div className="header__container">
-        <h5>Hello I'm</h5>
-        <h1 style={{ fontWeight: "600" }}>Ashish Kumar</h1>
-        
-        <h5 className="text-light">
-          <span style={{ color: 'cyan', fontWeight: 'bold' }}>
-            <Typewriter
-              words={[
-                'MERN Stack Developer',
-                'DSA Enthusiast',
-              ]}
-              loop={true}
-              cursor
-              cursorStyle="|"
-              typeSpeed={100}
-              deleteSpeed={70}
-              delaySpeed={1000}
-            />
-          </span>
-        </h5>
+    <header className="hero-section">
+      {/* Top-left logo */}
+  <div className="hero-logo" onClick={() => window.location.reload()}>
+    <img src="public\ChatGPT_Image_Feb_9__2026__07_38_33_PM-removebg-preview.png" alt="Logo" />
+  </div>
+      <div className="hero-container">
+        {/* Main Name Display */}
+        <div className="hero-name">
+          <h1 className="name-display">ASHISH</h1>
+        </div>
 
-        <CTA />
-        <HeaderSocials />
+        {/* Tagline Section */}
+        <div className="hero-tagline">
+          <p className="tagline-top">I DESIGN AND BUILD PRODUCTS THAT</p>
+          <p className="tagline-bottom">deliver real impact.</p>
+        </div>
 
-        <a href="#contact" className="scroll__down">
-          Scroll Down <AiOutlineArrowDown />
-        </a>
-      </div>
+        {/* Bottom Info Section */}
+        <div className="hero-footer">
+          <div className="footer-left">
+            <HiLocationMarker className="location-icon" />
+            <div className="location-text">
+              <p className="location-city">BASED IN DHANBAD,</p>
+              <p className="location-country">INDIA</p>
+            </div>
+          </div>
 
-      <div className="me">
-        <img src={ME} alt="me" />
+          <div className="footer-right">
+            <RiStackFill className="role-icon" />
+            <div className="role-text">
+              <p className="role-title">FULL STACK DEV,</p>
+              <p className="role-subtitle">& DESIGNER</p>
+            </div>
+          </div>
+        </div>
       </div>
     </header>
   );

@@ -11,27 +11,32 @@ import Education from "./components/education/Education";
 import Contact from "./components/contact/Contact";
 import Footer from "./components/footer/Footer";
 import LearningProjects from "./components/learningTimeProject/LearningProjects";
+// import CustomCursor from "./components/CustomCursor";
+
+import { GridBackground } from "./components/GridBackground";
+import Portfolio from "./components/OverView/Portfolio";
 
 function App() {
   useEffect(() => {
     document.title = "Ashish Kumar | Portfolio";
   }, []);
 
-  return (
-    <>
+return (
+  <GridBackground>
+    <div className="app-wrapper">
       <Header />
       <Nav />
       <About />
       <Skills />
       <Projects />
-      {/* <LearningProjects /> */}
       <DSA />
       <Education />
-      {/* <Testimonial /> */}
-      <Contact />
+      <Portfolio />
       <Footer />
-    </>
-  );
+    </div>
+  </GridBackground>
+);
+
 }
 
 export default App;

@@ -1,8 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=Playfair+Display:ital,wght@0,400;1,400&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* ==================== RESET + GLOBAL ==================== */
 * {
   margin: 0;
   padding: 0;
@@ -12,6 +15,30 @@
   text-decoration: none;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* ==================== CUSTOM CURSOR ==================== */
+html,
+body {
+  cursor: url("/cursor1.png") 8 8, auto;
+}
+
+a,
+button,
+.btn,
+input,
+textarea,
+select {
+  cursor: url("/cursor1.png") 8 8, pointer;
+}
+
+/* ==================== THEME VARIABLES ==================== */
 :root {
   --color-bg: #1f1f38;
   --color-bg-variant: #2c2c6c;
@@ -27,23 +54,14 @@
   --container-width-sm: 90%;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
-::-webkit-scrollbar {
-  display: none;
-}
-
+/* ==================== BASE STYLES ==================== */
 body {
   font-family: "Poppins", sans-serif;
-  background: var(--color-bg);
   color: var(--color-white);
   line-height: 1.7;
-  background-image: url(./assets/bg-texture.png);
+  background: transparent;
 }
 
-/* =================== General styles ===============  */
 .container {
   width: var(--container-width-lg);
   margin: 0 auto;
@@ -89,14 +107,14 @@ a:hover {
   color: var(--color-white);
 }
 
+/* ==================== BUTTONS ==================== */
 .btn {
-  width: max-content;
   display: inline-block;
-  color: var(--color-primary);
+  width: max-content;
   padding: 0.75rem 1.2rem;
   border-radius: 0.4rem;
-  cursor: pointer;
   border: 1px solid var(--color-primary);
+  color: var(--color-primary);
   transition: var(--transition);
 }
 
@@ -111,13 +129,20 @@ a:hover {
   color: var(--color-bg);
 }
 
+::selection {
+  background: rgba(255, 255, 255, 0.85);
+  color: #000;
+}
+
+
+/* ==================== MEDIA ==================== */
 img {
-  display: block;
   width: 100%;
+  display: block;
   object-fit: cover;
 }
 
-/* ============= medium devices ================  */
+/* ==================== RESPONSIVE ==================== */
 @media screen and (max-width: 1024px) {
   .container {
     width: var(--container-width-md);
@@ -128,7 +153,6 @@ img {
   }
 }
 
-/* ============= small devices ================  */
 @media screen and (max-width: 600px) {
   .container {
     width: var(--container-width-sm);
