@@ -5,7 +5,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  /* background: #000; */
   position: relative;
   overflow: hidden;
   padding: 2rem;
@@ -21,10 +20,6 @@
   justify-content: center;
   position: relative;
 }
-
-
-
-
 
 /* ==================== HERO LOGO ==================== */
 .hero-logo {
@@ -44,13 +39,6 @@
   cursor: pointer;
 }
 
-
-
-
-
-
-
-
 /* ==================== NAME DISPLAY ==================== */
 .hero-name {
   width: 100%;
@@ -69,21 +57,14 @@
   text-transform: uppercase;
   position: relative;
   display: inline-block;
-  
-  /* Premium headline animation */
+
   animation: premiumHeadlineEntry 1.2s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
   animation-delay: 0.1s;
-  
-  /* Initial state before animation */
+
   opacity: 0;
   transform: translateY(20px) scale(0.98);
   filter: blur(8px);
 }
-
-
-
-
-
 
 /* ==================== TAGLINE SECTION ==================== */
 .hero-tagline {
@@ -204,7 +185,8 @@
   }
 }
 
-/* ==================== RESPONSIVE DESIGN ==================== */
+
+/* ==================== TABLET (max-width: 1024px) ==================== */
 @media screen and (max-width: 1024px) {
   .hero-section {
     padding: 1.5rem;
@@ -229,32 +211,65 @@
   }
 }
 
+
+/* ==================== MOBILE (max-width: 768px) ==================== */
 @media screen and (max-width: 768px) {
+
   .hero-section {
     padding: 1rem;
+    align-items: center;
+    justify-content: center;
   }
 
+  /* Fix: container should fill screen and center content */
+  .hero-container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+  }
+
+  /* Fix: name takes full width and centers */
   .hero-name {
-    margin-bottom: 2rem;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 1.5rem;
   }
 
+  /* Fix: name font size — was too small and left-shifted */
   .name-display {
-    font-size: clamp(3rem, 12vw, 8rem);
+    font-size: clamp(4.5rem, 20vw, 9rem);
+    letter-spacing: -0.03em;
+    text-align: center;
+    display: block;
+    width: 100%;
+  }
+
+  /* Fix: tagline centered */
+  .hero-tagline {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding: 0 1rem;
   }
 
   .tagline-top {
-    font-size: clamp(0.55rem, 1vw, 0.75rem);
-    letter-spacing: 0.15em;
+    font-size: clamp(0.6rem, 2.5vw, 0.85rem);
+    letter-spacing: 0.18em;
   }
 
   .tagline-bottom {
-    font-size: clamp(1.2rem, 3.5vw, 2.5rem);
+    font-size: clamp(1.4rem, 5vw, 2.5rem);
   }
 
+  /* Fix: footer stacked and centered */
   .hero-footer {
     flex-direction: column;
     align-items: center;
-    gap: 2rem;
+    gap: 1.5rem;
     padding: 0 1.5rem;
     bottom: 2rem;
   }
@@ -276,29 +291,43 @@
   .role-icon {
     font-size: 1.5rem;
   }
+
+  /* Logo */
+  .hero-logo {
+    top: 1.2rem;
+    left: 1.2rem;
+  }
+
+  .hero-logo img {
+    height: 28px;
+  }
 }
 
+
+/* ==================== SMALL MOBILE (max-width: 480px) ==================== */
 @media screen and (max-width: 480px) {
+
   .hero-section {
     padding: 0.5rem;
   }
 
+  /* Name stays large and fills width */
   .name-display {
-    font-size: clamp(2.5rem, 10vw, 5rem);
+    font-size: clamp(3.8rem, 18vw, 7rem);
     letter-spacing: -0.03em;
   }
 
   .tagline-top {
-    font-size: 0.5rem;
+    font-size: clamp(0.55rem, 2.2vw, 0.75rem);
     letter-spacing: 0.12em;
   }
 
   .tagline-bottom {
-    font-size: clamp(1rem, 3vw, 1.8rem);
+    font-size: clamp(1.2rem, 4.5vw, 2rem);
   }
 
   .hero-footer {
-    gap: 1.5rem;
+    gap: 1.2rem;
     bottom: 1.5rem;
     padding: 0 1rem;
   }
@@ -314,27 +343,14 @@
   .role-icon {
     font-size: 1.25rem;
   }
-}
 
-
-@media screen and (max-width: 768px) {
-  .hero-logo {
-    top: 1.5rem;
-    left: 1.5rem;
-  }
-
-  .hero-logo img {
-    height: 24px;
-  }
-}
-
-@media screen and (max-width: 480px) {
+  /* Logo */
   .hero-logo {
     top: 1rem;
     left: 1rem;
   }
 
   .hero-logo img {
-    height: 22px;
+    height: 24px;
   }
 }
